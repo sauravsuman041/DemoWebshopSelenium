@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MileStone3/src/test/resources/features/placingOrders&apos; to &apos;placingOrders.feature&apos;" description="Rename resource &apos;placingOrders&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/test/resources/features/placingOrders" name="placingOrders.feature" stamp="1741951993357" updateReferences="true"/>
+</session>

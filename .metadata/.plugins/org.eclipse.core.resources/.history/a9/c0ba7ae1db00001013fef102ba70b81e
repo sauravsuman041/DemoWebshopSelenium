@@ -1,0 +1,76 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import basepage.BasePage;
+
+public class CheckoutPage extends BasePage{
+
+	public CheckoutPage(WebDriver webDriver) {
+		super(webDriver);
+		PageFactory.initElements(webDriver , this);
+	}
+	
+	@FindBy(id = "termsofservice")
+	WebElement termsCheckBox;
+	
+	@FindBy(id = "checkout")
+	WebElement checkOutBtn;
+	
+	@FindBy(xpath = "//input[@onclick='Billing.save()']")
+	WebElement billingBtn;
+	
+	@FindBy(xpath = "//input[@onclick='Shipping.save()']")
+	WebElement shippingBtn;
+	
+	@FindBy(xpath = "//input[@onclick='ShippingMethod.save()']")
+	WebElement shippingMethodBtn;
+	
+	@FindBy(xpath = "//input[@onclick='PaymentMethod.save()']")
+	WebElement paymentMethodBtn;
+	
+	@FindBy(xpath = "//input[@onclick='PaymentInfo.save()']")
+	WebElement paymentInfoBtn;
+	
+	@FindBy(xpath = "//input[@onclick='ConfirmOrder.save()']")
+	WebElement confirmOrderBtn;
+	
+	@FindBy(id = "paymentmethod_0")
+	WebElement paymentMethod;
+	
+	@FindBy(id = "confirm-order")
+	WebElement confirmBtn;
+	
+	@FindBy(xpath = "//div[@class='section order-completed']/div/strong")
+	WebElement confirmationMessage;
+	
+	@FindBy(xpath = "//a[contains(text(),'Log out')]")
+	WebElement logoutBtn;
+
+	public void agreeToTerms() {
+		termsCheckBox.click();
+    }
+
+    public void clickCheckoutButton() {
+        checkOutBtn.click();
+    }
+
+    public void selectPaymentMethod(String method) {
+        paymentMethod.click();
+    }
+
+    public void confirmOrder() {
+        confirmBtn.click();
+    }
+
+    public String getConfirmationMessage() {
+        return confirmationMessage.getText();
+    }
+
+    public void logout() {
+        logoutBtn.click();
+    }
+}

@@ -1,0 +1,35 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import basepage.BasePage;
+
+public class CheckoutPage extends BasePage{
+
+	public CheckoutPage(WebDriver webDriver) {
+		super(webDriver);
+		PageFactory.initElements(webDriver , this);
+	}
+	
+	@FindBy(id = "termsofservice")
+	WebElement termsCheckBox;
+	
+	@FindBy(id = "checkout")
+	WebElement checkOutBtn;
+	
+	@FindBy(id = "paymentmethod_0")
+	WebElement paymentMethod;
+	
+	@FindBy(id = "confirm-order")
+	WebElement confirmBtn;
+	
+	@FindBy(xpath = "//div[@class='section order-completed']/div/strong")
+	WebElement confirmationMessage;
+	
+	@FindBy(xpath = "//a[contains(text(),'Log out')]")
+	WebElement logoutBtn;
+
+}
