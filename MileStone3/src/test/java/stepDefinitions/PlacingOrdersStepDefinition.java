@@ -49,6 +49,7 @@ public class PlacingOrdersStepDefinition {
 	@Then("User logs out successfully")
 	public void user_logs_out_successfully() {
 		page.logout();
+		Assert.assertEquals(driver.getCurrentUrl(), "https://demowebshop.tricentis.com/");
 		driver.quit();
 	}
 

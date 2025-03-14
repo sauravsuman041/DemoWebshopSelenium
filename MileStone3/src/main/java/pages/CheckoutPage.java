@@ -45,14 +45,13 @@ public class CheckoutPage extends BasePage{
 	@FindBy(id = "confirm-order")
 	WebElement confirmBtn;
 	
-	@FindBy(xpath = "//div[@class='section order-completed']/div/strong")
+	@FindBy(xpath = "//div[contains(@class,'order-completed')]//strong")
 	WebElement confirmationMessage;
 	
 	@FindBy(xpath = "//a[contains(text(),'Log out')]")
 	WebElement logoutBtn;
 
 	public void agreeToTerms() {
-		wait.until(ExpectedConditions.elementToBeClickable(termsCheckBox));
 		termsCheckBox.click();
     }
 
@@ -72,12 +71,14 @@ public class CheckoutPage extends BasePage{
     }
 
     public String getConfirmationMessage() {
+    	wait.until(ExpectedConditions.urlContains("completed"));
         return confirmationMessage.getText();
     }
 
     public void logout() {
     	wait.until(ExpectedConditions.elementToBeClickable(logoutBtn));
         logoutBtn.click();
+        wait.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/"));
     }
     
     public void fillInDetails() {
